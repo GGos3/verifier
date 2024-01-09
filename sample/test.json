@@ -1,0 +1,36 @@
+{
+  "id": "did:kr:mobileid:24wCfsA4fSMxCXQPVFEMrg56nzMZ",
+  "profile": {
+    "callBackUrl": "http://192.168.0.86:8081/omniapi/vc/v2/verify",
+    "encryptType": 1,
+    "filter": {
+      "allowIssuerList": [],
+      "requiredAssertionList": [
+        {
+          "id": "driverlicen",
+          "name": "운전면허증",
+          "type": "driverlicen"
+        },
+        {
+          "id": "stk",
+          "name": "주소 운전면허증",
+          "type": "stk"
+        }
+      ],
+      "requiredPrivacyList": [
+        "address"
+      ]
+    },
+    "name": "jpkim",
+    "nonce": "adeb3c8d142e83c2834af1534a07ff5453622edc33fd7961ae63ee140b67c5b1",
+    "publicKey": "23qZ2X9MHrRKHDiYz9Api5rP9XK5thwDT56pAXD2Ah5Pz",
+    "type": "VERIFY"
+  },
+  "proof": {
+    "created": "2024-01-09T12:21:18",
+    "creator": "did:kr:mobileid:24wCfsA4fSMxCXQPVFEMrg56nzMZ#jpkim.sp",
+    "nonce": "890e75d1452c3beb441cdc606b95748840c60fa194d98db91ab58c19348be5b5",
+    "signatureValue": "3m7r69d34D62sFNZ5UHsCMFXfHNKKKJkCAQVLepwrHpLeHH4CTSzxqaRkmKcNC3aYMXb2gn8RQJu5K5Gv7cwdjWpi",
+    "type": "Secp256k1VerificationKey2018"
+  }
+}

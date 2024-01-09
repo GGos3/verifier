@@ -1,0 +1,36 @@
+{
+  "id": "did:omn:44Dn4uSDvNPZzHUUB9AqbA1yJtkh",
+  "profile": {
+    "callBackUrl": "http://192.168.0.86:8081/omniapi/vc/v2/verify",
+    "encryptType": 1,
+    "filter": {
+      "allowIssuerList": [],
+      "requiredAssertionList": [
+        {
+          "id": "driverlicen",
+          "name": "운전면허증",
+          "type": "driverlicen"
+        },
+        {
+          "id": "stk",
+          "name": "주소 운전면허증",
+          "type": "stk"
+        }
+      ],
+      "requiredPrivacyList": [
+        "address"
+      ]
+    },
+    "name": "Raonsecure",
+    "nonce": "f8719d45d49b9f6794569a6eab48f9a3eca62623c9c42b685cc08b4c203cec20",
+    "publicKey": "2486Tyif8pbhSD4RUiB9Ko4a4J51PTbhbLxobMdZdnH9r",
+    "type": "VERIFY"
+  },
+  "proof": {
+    "created": "2024-01-09T11:58:21",
+    "creator": "did:omn:44Dn4uSDvNPZzHUUB9AqbA1yJtkh#omni.sp2",
+    "nonce": "f0a170af21875f47ea1ff800e87e1776ee85132f4eb3df4bea27ab1827a2922b",
+    "signatureValue": "3m3yL3PWApCHPWDiHAKbsFj3ve1fDHsbY3gpbEqfJ9NztjyhWUEAQPukgpHZpC4HoJVAo2eQGD1fPoWYWQoz7jxra",
+    "type": "Secp256k1VerificationKey2018"
+  }
+}
