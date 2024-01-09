@@ -5,6 +5,7 @@ import com.raonsecure.omnione.core.crypto.GDPCryptoHelperClient;
 import com.raonsecure.omnione.core.data.did.v2.DIDs;
 import com.raonsecure.omnione.core.data.iw.profile.EncryptTypeEnum;
 import com.raonsecure.omnione.core.data.iw.profile.Profile;
+import com.raonsecure.omnione.core.data.iw.profile.result.VCVerifyProfileResult;
 import com.raonsecure.omnione.core.eoscommander.crypto.digest.Sha256;
 import com.raonsecure.omnione.core.exception.IWException;
 import com.raonsecure.omnione.core.key.IWKeyManagerInterface;
@@ -13,6 +14,7 @@ import com.raonsecure.omnione.core.key.store.IWDIDFile;
 import com.raonsecure.omnione.sdk_server_core.blockchain.common.ServerInfo;
 import com.raonsecure.omnione.sdk_server_core.data.IWApiBaseData;
 import com.raonsecure.omnione.sdk_verifier.api.data.SpProfileParam;
+import com.raonsecure.omnione.sdk_verifier.api.data.VcVerifyProfileParam;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -92,6 +94,21 @@ public class PropertyManager {
                 this.didDoc.getId(),
                 configBean.getSpAccount()
         );
+    }
+
+    public VcVerifyProfileParam createVcVerifyProfileParam(VCVerifyProfileResult result) {
+        VcVerifyProfileParam vcVerifyProfileParam = new VcVerifyProfileParam(
+                this.blockChainServerInfo,
+                this.keyManager,
+                configBean.getSpKeyId(),
+                configBean.getSpAccount(),
+                result,
+                configBean.getSpDidPath()
+        );
+
+        vcVerifyProfileParam.setServiceCode(configBean.getSpServiceCode());
+
+        return vcVerifyProfileParam;
     }
 
 
