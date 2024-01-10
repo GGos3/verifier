@@ -2,7 +2,6 @@ package com.ggos3.verifier.common.config;
 
 import com.raonsecure.omnione.core.util.GDPLogger;
 import com.raonsecure.omnione.sdk_server_core.OmniOption;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
