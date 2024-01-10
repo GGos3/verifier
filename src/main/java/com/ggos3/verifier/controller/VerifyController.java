@@ -1,5 +1,6 @@
 package com.ggos3.verifier.controller;
 
+import com.ggos3.verifier.common.config.ConfigBean;
 import com.ggos3.verifier.dto.response.QrDataResponse;
 import com.ggos3.verifier.service.VerifyService;
 import com.raonsecure.omnione.core.data.rest.ResultJson;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/omniapi/vc/v2/verify")
 public class VerifyController {
+
     private final VerifyService verifyService;
+    private final ConfigBean configBean;
 
     @PostMapping("/")
     public ResultJson verifyVp(@RequestBody String request) {
@@ -29,9 +32,10 @@ public class VerifyController {
     @GetMapping("/getQRData")
     public QrDataResponse getQrData() {
         String nonce = verifyService.createNonce();
+        String serverDomain = configBean.getServerDomain();
 
         return new QrDataResponse(
-                "http://10.48.17.216:8080/omniapi/vc/v2/verify/profile?nonce=" + nonce
+                serverDomain + "/omniapi/vc/v2/verify/profile?nonce=" + nonce
         );
     }
 }
