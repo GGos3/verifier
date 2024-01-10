@@ -10,4 +10,7 @@ public record QrDataResponse(
         String encryptType,
         String sessionId
 ) {
+    public QrDataResponse(String profileUrl) {
+        this(null, profileUrl, null, null, null, null, null, null);
+    }
 }

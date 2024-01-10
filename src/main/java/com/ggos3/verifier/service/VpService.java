@@ -1,12 +1,10 @@
 package com.ggos3.verifier.service;
 
 
-import com.raonsecure.omnione.core.data.rest.ResultJson;
-import com.raonsecure.omnione.core.util.http.HttpException;
-import com.raonsecure.omnione.sdk_server_core.blockchain.common.BlockChainException;
+import com.raonsecure.omnione.sdk_server_core.data.VcResult;
 
 public interface VpService {
-    ResultJson getProfile(String nonce) throws Exception;
+    String getProfile(String nonce);
 
-    ResultJson verifyVP(String vcVerifyProfileResult) throws BlockChainException, HttpException;
+    VcResult verifyVP(String vcVerifyProfileResult);
 }

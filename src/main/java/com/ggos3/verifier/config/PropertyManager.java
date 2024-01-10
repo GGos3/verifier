@@ -71,19 +71,15 @@ public class PropertyManager {
      * @param callBackUrl
      * @param presentType 0(NONE), 1(AES_128), 2(AES_256), 3(ARIA_128), 4(ARIA256)
      * @return SpProfileParam
-     * @throws IWException
      */
 
-    public SpProfileParam createSpProfileParam(String callBackUrl, String nonce) throws IWException {
+    public SpProfileParam createSpProfileParam(String callBackUrl, String nonce) {
         Profile profile = new Profile();
 
         profile.setCallBackUrl(callBackUrl);
         profile.setEncryptType(EncryptTypeEnum.AES_128);
         profile.setNonce(nonce);
         profile.setSpName("jpkim");
-//        profile.setKeyType(EncryptKeyTypeEnum.ALGORITHM_SECP256K1);
-//        profile.setPresentType(presentType);
-
 
         return new SpProfileParam(
                 this.blockChainServerInfo,
@@ -132,9 +128,17 @@ public class PropertyManager {
     }
 
 
-    public String createNonce() throws IWException {
-        return Sha256.from(
-                new GDPCryptoHelperClient().generateNonce()
-        ).toString();
+    public String createNonce() {
+        String nonce = null;
+
+        try {
+            nonce = Sha256.from(
+                    new GDPCryptoHelperClient().generateNonce()
+            ).toString();
+        } catch (IWException e) {
+            log.error("IWException ={}", e.getErrorReason());
+        }
+
+        return nonce;
     }
 }
