@@ -2,11 +2,13 @@ package com.ggos3.verifier.controller;
 
 import com.ggos3.verifier.common.config.ConfigBean;
 import com.ggos3.verifier.dto.response.QrDataResponse;
+import com.ggos3.verifier.dto.response.VerifyVpWithResultResponse;
 import com.ggos3.verifier.service.VerifyService;
 import com.raonsecure.omnione.core.data.rest.ResultJson;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
 
 @Slf4j
 @RestController
@@ -20,6 +22,11 @@ public class VerifyController {
     @PostMapping("/")
     public ResultJson verifyVp(@RequestBody String request) {
         return verifyService.verifyVp(request);
+    }
+
+    @PostMapping("/withResult")
+    public VerifyVpWithResultResponse verifyWithResult(@RequestBody String request) {
+        return verifyService.verifyVpWithResult(request);
     }
 
 
